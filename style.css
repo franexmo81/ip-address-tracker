@@ -1,0 +1,267 @@
+/* ------------ FONT TYPES ------------ */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+
+/* ------------ CUSTOM VARIABLES ------------ */
+
+:root {
+  --very-dark-gray: hsl(0, 0%, 17%);
+  --dark-gray: hsl(0, 0%, 59%);
+  --data-container-height: 280px;
+  --data-container-background-url: url("images/pattern-bg-desktop.png");
+
+  @media only screen and (max-width: 375px) {
+    --data-container-height: 300px;
+    --data-container-background-url: url("images/pattern-bg-mobile.png");
+  }
+}
+
+/* ------------ CSS RESET ------------ */
+
+*,
+*::before,
+*::after {
+  /* outline: 1px dashed rgba(255, 0, 0, 0.3) !important; */
+  /*background: rgb(0, 100, 0, 0.05) !important;*/
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------------ */
+
+body {
+  position: relative;
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  max-width: 1440px;
+  height: 100svh;
+  margin: auto;
+  text-align: center;
+}
+
+.data-container {
+  position: relative;
+  height: var(--data-container-height);
+  background-image: var(--data-container-background-url);
+  background-repeat: no-repeat;
+  background-position: center top;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+.title {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 28px;
+  margin: 15px;
+}
+
+.ipForm {
+  max-width: 500px;
+  height: 60px;
+  margin: 30px auto;
+  border-radius: 15px;
+  overflow-x: clip;
+  display: flex;
+}
+
+.ipForm__input {
+  display: block;
+  border-radius: 15px 0 0 15px;
+  border: none;
+  flex-basis: 100%;
+  flex-shrink: 1;
+  font-size: 16px;
+  padding: 0 15px 0 25px;
+  outline: none;
+  z-index: 1;
+}
+
+.ipForm__btn {
+  display: block;
+  background-color: #ffffff;
+  height: 60px;
+  flex-basis: 60px;
+  border: none;
+  max-width: 0px;
+  flex-shrink: 0;
+  overflow-x: clip;
+  transition: background-color 0.5s, max-width 0.5s;
+}
+
+.ipForm__btn--active {
+  background-color: #000000;
+  cursor: pointer;
+  max-width: 60px;
+}
+
+.ipForm__btn img {
+  transform: translateX(-40px);
+  transition: transform 0.5s;
+}
+
+.ipForm__btn--active:hover,
+.ipForm__btn--active:active {
+  background-color: var(--very-dark-gray);
+}
+
+.ipForm__btn--active img {
+  transform: translateX(0);
+}
+
+.ipInfo {
+  list-style-type: none;
+  position: relative;
+  margin: 30px auto;
+  background-color: #fff;
+  z-index: 2000;
+  border-radius: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 5px 5px 5px #33333350;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-height: 100svh;
+  overflow-y: clip;
+  transition: transform 0.5s, max-height 0.5s;
+}
+
+.ipInfo__collapse-btn {
+  display: none;
+}
+
+.ipInfo__element {
+  box-sizing: border-box;
+  flex-basis: 25%;
+  min-width: 220px;
+  transition: max-height 0.5s, opacity 0.5s, transform 0.5s;
+}
+
+.ipInfo__title {
+  position: relative;
+  text-transform: uppercase;
+  color: var(--dark-gray);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.ipInfo__data {
+  position: relative;
+  font-weight: 500;
+  box-sizing: border-box;
+  transition: opacity 0.5s;
+}
+
+@media only screen and (min-width: 1100px) {
+  .ipInfo {
+    max-width: 1000px;
+    padding: 40px 0;
+  }
+
+  .ipInfo__element {
+    text-align: left;
+    padding: 0 35px;
+  }
+
+  .ipInfo__element:not(:last-child) {
+    border-right: 1px solid var(--dark-gray);
+  }
+  .ipInfo__title {
+    top: -5px;
+  }
+  .ipInfo__data {
+    top: 10px;
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .ipInfo {
+    max-width: 500px;
+    padding: 15px 0;
+  }
+
+  .ipInfo__element {
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  .ipInfo__title {
+    margin-bottom: 10px;
+  }
+
+  .ipInfo__data {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .data-container {
+    padding: 10px 25px;
+  }
+
+  .title {
+    margin: 20px auto;
+  }
+
+  .ipForm {
+    margin: 20px auto;
+  }
+
+  .ipInfo {
+    margin: 20px auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ipInfo__element {
+    max-height: 150px;
+  }
+  .ipInfo__element:last-child {
+    padding: 10px 35px;
+  }
+
+  .ipInfo__collapse-btn {
+    display: block;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    color: var(--dark-gray);
+    cursor: pointer;
+    z-index: 2500;
+    transition: transform 0.5s, color 0.2s;
+  }
+
+  .ipInfo__collapse-btn:hover {
+    color: var(--very-dark-gray);
+  }
+
+  .ipInfo--moveUp {
+    transform: translateY(-80px);
+  }
+
+  .ipInfo--moveUp .ipInfo__element:nth-of-type(3),
+  .ipInfo--moveUp .ipInfo__element:nth-of-type(4) {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  .ipInfo--moveUp .ipInfo__collapse-btn {
+    transform: rotateX(180deg);
+  }
+}
+
+.map-container {
+  position: relative;
+  box-sizing: border-box;
+  height: calc(100% - var(--data-container-height));
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+}
+
+.attribution {
+  z-index: 9999;
+}
