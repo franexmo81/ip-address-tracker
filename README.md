@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://github.com/franexmo81/ip-address-tracker)
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/ip-address-tracker-html-css-javascript-and-api-Znic-n9raI)
+- Live Site URL: [franexmo81.github.io/ip-address-tracker](https://franexmo81.github.io/ip-address-tracker)
 
 ## My process
 
